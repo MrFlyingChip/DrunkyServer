@@ -54,5 +54,9 @@ findProduct = function(db, product, productId){
     });
 };
 
+module.exports.addNewProduct = function (db, product, productObj) {
+    return db.collection(product).insertOne(productObj);
+};
+
 
 

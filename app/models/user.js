@@ -25,6 +25,32 @@ module.exports.hasIdInArray = function(db, key, id, userId){
     });
 };
 
+module.exports.signInNewUser = function(db, newUser){
+    return new Promise((resolve, reject) => {
+        findUserWithField(db, 'username', newUser.username)
+            .then(value => {
+                if(value != null){
+                    throw new Error('there is a user with such username');
+                } else {
+                    return findUserWithField(db, 'email', newUser.email)
+                }
+            })
+            .then(value => {
+                if(value != null){
+                    throw new Error('there is a user with such email');
+                } else {
+                    return createNewUser(db, newUser);
+                }
+            })
+            .then(value => {
+                resolve(value);
+            })
+            .catch(error => {
+                reject(error);
+            })
+    })
+};
+
 findUser = function (db, userId) {
     return new Promise((resolve, reject) => {
         db.collection('users').findOne({'_id': new ObjectID(userId)})
@@ -38,5 +64,29 @@ findUser = function (db, userId) {
             .catch(error => {
                 reject(error);
             })
+    });
+};
+
+findUserWithField = function(db, key, value){
+    return new Promise((resolve, reject) => {
+        db.collection('users').findOne({key: value})
+            .then(user => {
+                resolve(user);
+            })
+            .catch(erroe => {
+                reject(error);
+            })
+    })
+};
+
+createNewUser = function (db, newUser) {
+    return new Promise((resolve, reject) => {
+       db.collection('users').insertOne(newUser)
+           .then(value => {
+               resolve(value.ops[0]);
+           })
+           .catch(error => {
+               reject(error);
+           })
     });
 };

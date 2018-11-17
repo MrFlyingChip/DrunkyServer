@@ -13,3 +13,17 @@ module.exports.fetchProduct = function (req, res, db){
             res.send(error);
         })
 };
+
+module.exports.addProduct = function (req, res, db) {
+    const productObj = req.body['product'];
+    const image = req.body.file.originalName;
+    const productName = req.params['product'];
+    productObj.image = image;
+    product.addNewProduct(db, productName, productObj)
+        .then(value => {
+            res.send(value);
+        })
+        .catch(error => {
+            res.send(error);
+        })
+};
