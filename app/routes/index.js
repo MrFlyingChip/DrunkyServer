@@ -4,4 +4,6 @@ const userRoutes = require('./user_routes');
 
 module.exports = function (app, db, upload) {
     drunkyRoutes(app, db, upload);
+    adminRoutes(app, db, upload);
+    userRoutes(app, db, upload);
 };
