@@ -5,20 +5,18 @@ function getCreator(productName) {
 }
 
 function createDrink(drink){
-    const drinkObj = {
+    return {
         name: drink.name,
         description: drink.description,
         image: drink.image,
-        country: drink.country,
         likes: drink.likes,
         favourites: drink.favourites,
-        sortingTypes: drink.sortingTypes
+        filterTypes: drink.filterTypes
     };
-    return drinkObj;
 }
 
 function createCocktail(cocktail){
-    const drinkObj = {
+    return {
         name: cocktail.name,
         description: cocktail.description,
         image: cocktail.image,
@@ -28,22 +26,19 @@ function createCocktail(cocktail){
         drinks: cocktail.drinks,
         ingredients: cocktail.ingredients,
         tools: cocktail.tools,
-        sortingTypes: cocktail.sortingTypes
+        filterTypes: cocktail.filterTypes
     };
-    return drinkObj;
 }
 
 function createBar(bar){
-    const drinkObj = {
-        name: drink.name,
-        description: drink.description,
-        image: drink.image,
-        country: drink.country,
-        likes: 0,
-        favourites: 0,
-        sortingTypes: drink.sortingTypes
+    return {
+        name: bar.name,
+        description: bar.description,
+        image: bar.image,
+        likes: bar.likes,
+        favourites: bar.favourites,
+        filterTypes: bar.filterTypes
     };
-    return drinkObj;
 }
 
 module.exports.createProduct = function (productName, product) {

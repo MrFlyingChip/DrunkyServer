@@ -1,4 +1,3 @@
-const ObjectID = require('mongodb').ObjectID;
 const product = require('../models/product');
 
 module.exports.fetchProduct = function (req, res, db){
