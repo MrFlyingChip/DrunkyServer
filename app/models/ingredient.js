@@ -9,7 +9,7 @@ module.exports.fetchIngredient = function (db, ingredientId) {
                 if(value){
                     resolve(value);
                 } else {
-                    reject(value);
+                    reject(new Error('no ingredient with this id!'));
                 }
             })
             .catch(error => {

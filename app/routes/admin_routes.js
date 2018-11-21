@@ -3,17 +3,6 @@ const ingredientController = require('../controllers/ingredientController');
 const toolController = require('../controllers/toolController');
 
 module.exports = function (app, db, upload) {
-    app.route('/admin/:product', upload.single('image'))
-        .post((req, res) => {
-            product_controller.addProduct(req, res, db);
-        })
-        .put((req, res) => {
-
-        })
-        .delete((req, res) => {
-
-        });
-
     //ingredient admin routes
     app.get('/admin/ingredient/:id', (req, res) => {
         ingredientController.fetchIngredient(db, req, res);
@@ -23,11 +12,11 @@ module.exports = function (app, db, upload) {
         ingredientController.fetchAllIngredients(db, req, res);
     });
 
-    app.post('/admin/ingredient', (req, res) => {
+    app.post('/admin/ingredient', upload.single('image'), (req, res) => {
         ingredientController.createIngredient(db, req, res);
     });
 
-    app.put('/admin/ingredient/:id', (req, res) => {
+    app.put('/admin/ingredient/:id', upload.single('image'), (req, res) => {
         ingredientController.updateIngredient(db, req, res);
     });
 
@@ -44,11 +33,11 @@ module.exports = function (app, db, upload) {
         toolController.fetchAllTools(db, req, res);
     });
 
-    app.post('/admin/tool', (req, res) => {
+    app.post('/admin/tool', upload.single('image'), (req, res) => {
         toolController.createTool(db, req, res);
     });
 
-    app.put('/admin/tool/:id', (req, res) => {
+    app.put('/admin/tool/:id', upload.single('image'), (req, res) => {
         toolController.updateTool(db, req, res);
     });
 

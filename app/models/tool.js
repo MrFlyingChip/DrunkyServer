@@ -9,7 +9,7 @@ module.exports.fetchTool = function (db, toolId) {
              if(value){
                  resolve(value);
              } else {
-                 reject(value);
+                 reject(new Error('no tool with this id!'));
              }
          })
          .catch(error => {

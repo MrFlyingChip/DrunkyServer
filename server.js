@@ -6,7 +6,7 @@ const multer          = require('multer');
 const cors = require('cors');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/' + req.id)
+        cb(null, 'uploads/')
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);

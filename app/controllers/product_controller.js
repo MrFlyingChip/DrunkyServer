@@ -15,7 +15,7 @@ module.exports.fetchProduct = function (req, res, db){
 
 module.exports.addProduct = function (req, res, db) {
     const productObj = req.body['product'];
-    const image = req.body.file.originalName;
+    const image = req.file.originalname;
     const productName = req.params['product'];
     productObj.image = image;
     product.addNewProduct(db, productName, productObj)

@@ -22,7 +22,8 @@ module.exports.fetchAllTools = function (db, req, res) {
 };
 
 module.exports.createTool = function (db, req, res) {
-    const toolObj = req.body['tool'];
+    const toolObj = req.body;
+    toolObj.image = req.file.originalname;
     tool.createTool(db, toolObj)
         .then(value => {
             res.send(value);
@@ -34,7 +35,8 @@ module.exports.createTool = function (db, req, res) {
 
 module.exports.updateTool = function (db, req, res) {
     const toolId = req.params['id'];
-    const toolObj = req.body['tool'];
+    const toolObj = req.body;
+    toolObj.image = (req.file) ? req.file.originalname : toolObj.image;
     tool.updateTools(db, toolId, toolObj)
         .then(value => {
             res.send(value);
