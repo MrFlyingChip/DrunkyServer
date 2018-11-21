@@ -1,4 +1,5 @@
 const ObjectID = require('mongodb').ObjectID;
+const userCreator = require('../creators/userCreator');
 
 module.exports.fetchUserForComment = function (db, userId) {
   return new Promise((resolve, reject) => {
@@ -51,6 +52,22 @@ module.exports.signInNewUser = function(db, newUser){
     })
 };
 
+module.exports.logInUser = function (db, username, password){
+    return new Promise((resolve, reject) => {
+        findUserWithField(db, 'username', username)
+            .then(user => {
+                if(user && user.password === password){
+                    resolve({'result': true});
+                } else {
+                    reject(new Error('wrong username or password'));
+                }
+            })
+            .catch(error => {
+                reject(error);
+            })
+    });
+};
+
 findUser = function (db, userId) {
     return new Promise((resolve, reject) => {
         db.collection('users').findOne({'_id': new ObjectID(userId)})
@@ -73,7 +90,7 @@ findUserWithField = function(db, key, value){
             .then(user => {
                 resolve(user);
             })
-            .catch(erroe => {
+            .catch(error => {
                 reject(error);
             })
     })
@@ -81,7 +98,9 @@ findUserWithField = function(db, key, value){
 
 createNewUser = function (db, newUser) {
     return new Promise((resolve, reject) => {
-       db.collection('users').insertOne(newUser)
+        newUser.type = 'user';
+        const newUserObj = userCreator.userCreator(newUser);
+       db.collection('users').insertOne(newUserObj)
            .then(value => {
                resolve(value.ops[0]);
            })

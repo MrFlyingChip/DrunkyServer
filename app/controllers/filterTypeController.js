@@ -80,6 +80,17 @@ module.exports.fetchFiltersFilterType= function (db, req, res) {
         })
 };
 
+module.exports.fetchFiltersForProduct = function(db, req, res){
+    const productName = req.params['product'];
+    filterType.fetchFiltersForProduct(db, productName)
+        .then(value => {
+            res.send(value);
+        })
+        .catch(error => {
+            res.send(error);
+        })
+};
+
 module.exports.createFilter = function (db, req, res) {
     const filterObj = req.body;
     filterObj.image = req.file.originalname;

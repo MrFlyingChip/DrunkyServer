@@ -28,6 +28,31 @@ module.exports.fetchFilterTypesProduct = function(db, productName) {
     return db.collection(FILTER_TYPES_COLLECTION).find({'product': productName}).toArray();
 };
 
+module.exports.fetchFiltersForProduct = function(db, productName){
+    return new Promise((resolve, reject) => {
+        let filters = {};
+        fetchFilterTypesProduct(db, productName)
+            .then(value => {
+                filters = value;
+                filters.forEach(item => item.filters = []);
+                return Promise.all(filters.map(item => this.fetchFiltersFilterType(db, item._id)));
+            })
+            .then(filtersResult => {
+                filtersResult.forEach(filter => {
+                    filters.forEach(filterType => {
+                        if(filter.filterType === filterType._id) {
+                            filterType.filters.push(filter);
+                        }
+                    });
+                });
+                resolve(filters);
+            })
+            .catch(error => {
+                reject(error);
+            })
+    });
+};
+
 module.exports.createFilterType = function(db, filterTypeObj){
     return new Promise((resolve, reject) => {
         const newFilterType = filterTypeCreator.createFilterType(filterTypeObj);

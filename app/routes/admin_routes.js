@@ -1,9 +1,30 @@
-const product_controller = require('../controllers/product_controller');
+const productController = require('../controllers/productController');
 const ingredientController = require('../controllers/ingredientController');
 const toolController = require('../controllers/toolController');
 const filterTypeController = require('../controllers/filterTypeController');
 
 module.exports = function (app, db, upload) {
+    //product admin routes
+    app.get('/admin/:product', (req, res) => {
+        productController.fetchAllProducts(req, res);
+    });
+
+    app.get('/admin/:product/:id', (req, res) => {
+        productController.findProduct(req, res);
+    });
+
+    app.post('/admin/:product', upload.single('image'), (req, res) => {
+        productController.addProduct(db, req, res);
+    });
+
+    app.put('/admin/:product/:id', upload.single('image'), (req, res) => {
+        productController.updateProduct(db, req, res);
+    });
+
+    app.delete('/admin/:product/:id', (req, res) => {
+        productController.deleteProduct(db, req, res);
+    });
+
     //ingredient admin routes
     app.get('/admin/ingredient/:id', (req, res) => {
         ingredientController.fetchIngredient(db, req, res);

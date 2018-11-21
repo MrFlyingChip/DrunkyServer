@@ -1,10 +1,11 @@
-const product_controller = require('../controllers/product_controller');
+const productController = require('../controllers/productController');
 const toolController = require('../controllers/toolController');
 const ingredientController = require('../controllers/ingredientController');
+const filterTypeController = require('../controllers/filterTypeController');
 
 module.exports = function (app, db, upload) {
   app.get('/:product/:id', function(req, res) {
-    product_controller.fetchProduct(req, res, db)
+      productController.fetchProduct(req, res, db)
   });
   app.get('/tool/:id', function (req, res) {
       toolController.fetchTool(db, req, res);
@@ -19,6 +20,6 @@ module.exports = function (app, db, upload) {
       //TODO get popular
   });
   app.get('/filters/:product', function (req, res) {
-      //TODO get filters
+      filterTypeController.fetchFiltersForProduct(req, res, db);
   });
 };

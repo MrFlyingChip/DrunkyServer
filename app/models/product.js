@@ -1,6 +1,7 @@
 const ObjectID = require('mongodb').ObjectID;
 const user = require('./user');
 const comment = require('./comment');
+const productCreator = require('../creators/productCreator');
 
 module.exports.fetchProductInfo = function (db, productName, productId, userId) {
     return new Promise((resolve, reject) => {
@@ -38,7 +39,7 @@ module.exports.fetchProductInfo = function (db, productName, productId, userId) 
     });
 };
 
-findProduct = function(db, product, productId){
+module.exports.findProduct = function(db, product, productId){
     return new Promise((resolve, reject) => {
         db.collection(product).findOne({'_id': new ObjectID(productId)})
             .then(value => {
@@ -54,8 +55,38 @@ findProduct = function(db, product, productId){
     });
 };
 
+module.exports.fetchAllProducts = function(db, product){
+    return db.collection(product).find().toArray();
+};
+
 module.exports.addNewProduct = function (db, product, productObj) {
-    return db.collection(product).insertOne(productObj);
+    return new Promise((resolve, reject) => {
+        const newProduct = productCreator.createProduct(product, productObj);
+        db.collection(product).insertOne(newProduct)
+            .then(value => {
+                resolve(value.ops[0]);
+            })
+            .catch(error => {
+                reject(error);
+            })
+    });
+};
+
+module.exports.updateProduct = function (db, product, productObj, productId) {
+    return new Promise((resolve, reject) => {
+        const updatedProduct = productCreator.createProduct(product, productObj);
+        db.collection(product).updateOne({'_id': new ObjectID(productId)}, updatedProduct)
+            .then(value => {
+                resolve(value);
+            })
+            .catch(error => {
+                reject(error);
+            })
+    });
+};
+
+module.exports.deleteProduct = function (db, product, productId) {
+    return db.collection(product).deleteOne({'_id': new ObjectID(productId)});
 };
 
 
