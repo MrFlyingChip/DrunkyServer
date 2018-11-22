@@ -1,4 +1,5 @@
 const comment = require('../models/comment');
+const user = require('../models/user');
 
 module.exports.addComment = function (req, res, db) {
     const productId = req.params['id'];
@@ -35,4 +36,41 @@ module.exports.deleteComment = function (req, res, db) {
             res.send(error);
         })
 };
+
+module.exports.logIn = function (req, res, db) {
+    const username = req.body['username'];
+    const password = req.body['password'];
+    user.logInUser(db, username, password)
+        .then(value => {
+            res.send(value);
+        })
+        .catch(error => {
+            res.send(error);
+        })
+};
+
+module.exports.signUp = function (req, res, db) {
+    const userObj = req.body['user'];
+    userObj.image = 'default.png';
+    user.signInNewUser(db, userObj)
+        .then(value => {
+            res.send({'ok': 'ok'});
+        })
+        .catch(error => {
+            res.send(error);
+        })
+};
+
+module.exports.accountInfo = function (req, res, db) {
+    const userId = req.body['userId'];
+    user.fetchUserInfo(db, userId)
+        .then(value => {
+            res.send(value);
+        })
+        .catch(error => {
+            res.send(error);
+        })
+};
+
+
 

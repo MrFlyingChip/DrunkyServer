@@ -68,6 +68,25 @@ module.exports.logInUser = function (db, username, password){
     });
 };
 
+module.exports.fetchUserInfo = function(db, userId){
+    return new Promise((resolve, reject) => {
+        findUser(db, userId)
+            .then(value => {
+                resolve({
+                    _id: value._id,
+                    username: value.username,
+                    email: value.username,
+                    image: value.image,
+                    favouriteProducts: value.favouriteProducts,
+                    likedProducts: value.likedProducts
+                })
+            })
+            .catch(error => {
+                reject(error);
+            })
+    })
+};
+
 findUser = function (db, userId) {
     return new Promise((resolve, reject) => {
         db.collection('users').findOne({'_id': new ObjectID(userId)})
