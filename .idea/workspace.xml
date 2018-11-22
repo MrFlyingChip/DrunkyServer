@@ -4,6 +4,7 @@
     <list default="true" id="d0bc0d7a-ada2-47cc-9653-9793b40fa805" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/userController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/user_routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/user_routes.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,22 +26,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="3" />
+          <entry key="js" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1347" />
+          <entry key="js" value="1589" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1347" />
+          <entry key="JavaScript" value="1589" />
         </counts>
       </usages-collector>
     </session>
@@ -76,7 +77,17 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/routes/user_routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -99,7 +110,6 @@
         <option value="$PROJECT_DIR$/app/models/sortType.js" />
         <option value="$PROJECT_DIR$/app/routes/index.js" />
         <option value="$PROJECT_DIR$/app/creators/productCreator.js" />
-        <option value="$PROJECT_DIR$/app/routes/user_routes.js" />
         <option value="$PROJECT_DIR$/app/collectionNames.js" />
         <option value="$PROJECT_DIR$/now.json" />
         <option value="$PROJECT_DIR$/app/creators/filterTypeCreator.js" />
@@ -122,6 +132,7 @@
         <option value="$PROJECT_DIR$/app/creators/userCreator.js" />
         <option value="$PROJECT_DIR$/app/models/user.js" />
         <option value="$PROJECT_DIR$/app/controllers/userController.js" />
+        <option value="$PROJECT_DIR$/app/routes/user_routes.js" />
       </list>
     </option>
   </component>
@@ -217,6 +228,12 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DrunkyServer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DrunkyServer" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -284,12 +301,12 @@
       <workItem from="1542812304298" duration="1590000" />
       <workItem from="1542826223960" duration="196000" />
       <workItem from="1542826520945" duration="8494000" />
-      <workItem from="1542902796174" duration="724000" />
+      <workItem from="1542902796174" duration="999000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67160000" />
+    <option name="totallyTimeSpent" value="67435000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -302,6 +319,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2048" height="1049" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.224963" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -520,17 +538,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes/user_routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/admin_routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="632">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes/user_routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
