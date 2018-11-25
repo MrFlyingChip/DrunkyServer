@@ -10,7 +10,7 @@ module.exports.addComment = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -22,7 +22,7 @@ module.exports.updateComment = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -33,7 +33,7 @@ module.exports.deleteComment = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -42,10 +42,11 @@ module.exports.logIn = function (req, res, db) {
     const password = req.body['password'];
     user.logInUser(db, username, password)
         .then(value => {
+            console.log(value);
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -57,7 +58,7 @@ module.exports.signUp = function (req, res, db) {
             res.send({'ok': 'ok'});
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -68,7 +69,7 @@ module.exports.accountInfo = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 

@@ -57,7 +57,7 @@ module.exports.logInUser = function (db, username, password){
         findUserWithField(db, 'username', username)
             .then(user => {
                 if(user && user.password === password){
-                    resolve({'result': true});
+                    resolve({'username': user.username, 'role': user.role});
                 } else {
                     reject(new Error('wrong username or password'));
                 }

@@ -7,7 +7,7 @@ module.exports.fetchIngredient = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -17,7 +17,7 @@ module.exports.fetchAllIngredients = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -29,7 +29,7 @@ module.exports.createIngredient = function(db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -42,7 +42,7 @@ module.exports.updateIngredient = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -53,6 +53,6 @@ module.exports.deleteIngredient = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };

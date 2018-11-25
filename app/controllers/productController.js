@@ -9,7 +9,7 @@ module.exports.fetchProduct = function (req, res, db){
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -21,7 +21,7 @@ module.exports.findProduct = function (req, res, db){
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -35,7 +35,7 @@ module.exports.addProduct = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -46,7 +46,7 @@ module.exports.fetchAllProducts = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -58,7 +58,7 @@ module.exports.deleteProduct = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -72,6 +72,6 @@ module.exports.updateProduct = function (req, res, db) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };

@@ -8,7 +8,7 @@ module.exports.fetchFilterType = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -19,7 +19,7 @@ module.exports.fetchFilterTypeProduct = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -30,7 +30,7 @@ module.exports.createFilterType = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -42,7 +42,7 @@ module.exports.updateFilterType = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -53,7 +53,7 @@ module.exports.deleteFilterType = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -65,7 +65,7 @@ module.exports.fetchFilter = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -76,7 +76,7 @@ module.exports.fetchFiltersFilterType= function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -87,7 +87,7 @@ module.exports.fetchFiltersForProduct = function(db, req, res){
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -99,7 +99,7 @@ module.exports.createFilter = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -112,7 +112,7 @@ module.exports.updateFilter = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -123,6 +123,6 @@ module.exports.deleteFilter = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };

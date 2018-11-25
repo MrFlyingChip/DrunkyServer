@@ -7,7 +7,7 @@ module.exports.fetchTool = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -17,7 +17,7 @@ module.exports.fetchAllTools = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -29,7 +29,7 @@ module.exports.createTool = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -42,7 +42,7 @@ module.exports.updateTool = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
 
@@ -53,6 +53,6 @@ module.exports.deleteTool = function (db, req, res) {
             res.send(value);
         })
         .catch(error => {
-            res.send(error);
+            res.send({error: error.message});
         })
 };
