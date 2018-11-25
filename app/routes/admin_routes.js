@@ -5,24 +5,24 @@ const filterTypeController = require('../controllers/filterTypeController');
 
 module.exports = function (app, db, upload) {
     //product admin routes
-    app.get('/admin/:product', (req, res) => {
-        productController.fetchAllProducts(req, res);
+    app.get('/admin/products/:product', (req, res) => {
+        productController.fetchAllProducts(req, res, db);
     });
 
     app.get('/admin/:product/:id', (req, res) => {
-        productController.findProduct(req, res);
+        productController.findProduct(req, res, db);
     });
 
     app.post('/admin/:product', upload.single('image'), (req, res) => {
-        productController.addProduct(db, req, res);
+        productController.addProduct(req, res, db);
     });
 
     app.put('/admin/:product/:id', upload.single('image'), (req, res) => {
-        productController.updateProduct(db, req, res);
+        productController.updateProduct(req, res, db);
     });
 
     app.delete('/admin/:product/:id', (req, res) => {
-        productController.deleteProduct(db, req, res);
+        productController.deleteProduct(req, res, db);
     });
 
     //ingredient admin routes
