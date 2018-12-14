@@ -57,7 +57,7 @@ module.exports.logInUser = function (db, username, password){
         findUserWithField(db, 'username', username)
             .then(user => {
                 if(user && user.password === password){
-                    resolve({'username': user.username, 'role': user.role});
+                    resolve({'username': user.username, 'role': user.type});
                 } else {
                     reject(new Error('wrong username or password'));
                 }
@@ -105,7 +105,9 @@ findUser = function (db, userId) {
 
 findUserWithField = function(db, key, value){
     return new Promise((resolve, reject) => {
-        db.collection('users').findOne({key: value})
+        const obj = {};
+        obj[key] = value;
+        db.collection('users').findOne(obj)
             .then(user => {
                 resolve(user);
             })
